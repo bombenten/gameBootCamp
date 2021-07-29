@@ -6,6 +6,11 @@ let background ;
 
 let ground;
 
+let keyW;
+let keyA;
+let keyS;
+let keyD;
+
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
@@ -34,11 +39,12 @@ class GameScene extends Phaser.Scene {
         // this.physics.add.overlap(jaigere,ground, ()=>this.add.sprite(220,300,'badboy').setScale(1.5));
         
 
-        badboy = this.add.sprite(220,300,'badboy')
+        badboy = this.physics.add.sprite(220,300,'badboy')
         .setScale(3);
         //background = this.add.tileSprite(0, 0, 850, 1400, 'bg').setOrigin(0, 0).setScale(5);
         //poke1 = this.add.image(100,200,'poke1');
-        this.anims.create({
+        this.anims.create(
+            {
             key: 'badAni',
             frames: this.anims.generateFrameNumbers('badboy', {
                 start: 0,
@@ -47,7 +53,13 @@ class GameScene extends Phaser.Scene {
             duration: 1000,
             framerate: 0,
             repeat: -1
-        })
+        }
+        )
+
+        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
     }
     
@@ -55,7 +67,24 @@ class GameScene extends Phaser.Scene {
     
     update(delta, time) {
         //background.tilePositionY -= 0.5;
-        badboy.anims.play('badAni', true);
+        
+        
+        if(keyW.isDown){
+            badboy.setVelocityY(-500);
+        }else if(keyS.isDown){
+            badboy.setVelocityY(500);
+        }else{
+            badboy.setVelocityY(0);
+        }
+        if(keyA.isDown){
+            badboy.setVelocityX(-500);
+        }else if(keyD.isDown){
+            badboy.setVelocityX(500);
+        }else{
+            badboy.setVelocityX(0);
+
+        badboy.anims.play('badAni', true); 
+        }
 
     }
 }
