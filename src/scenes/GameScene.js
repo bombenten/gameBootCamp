@@ -1,11 +1,6 @@
 import Phaser from "phaser";
 
-let jotaro;
-let jotaroA;
-let keyW;
-let keyA;
-let keyS;
-let keyD;
+let milos;
 
 
 class GameScene extends Phaser.Scene {
@@ -16,11 +11,11 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-
+        this.load.image('milos','src/image/bigmilos.png');
     }
 
     create() {
-
+        milos = this.add.image(225,300,'milos').setScale(3);
     }
     
     
