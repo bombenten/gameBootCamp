@@ -14,7 +14,7 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
-        jaigere = this.add.image(100, 200, 'milos').setS;
+        jaigere = this.add.image(250, 380, 'milos').setScale(5);
     }
     
     
