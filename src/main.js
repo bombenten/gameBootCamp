@@ -1,6 +1,7 @@
 import 'phaser';
 import Phaser from 'phaser';
 import GameScene from './scenes/GameScene';
+// import Menu from './scenes/Menu';
 
 
 const config = {
@@ -14,12 +15,14 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            debug: false,
             // gravity: {y:300}
         }
     },
     scene: [
+        // Menu,
         GameScene
+        
     ],
     
     
