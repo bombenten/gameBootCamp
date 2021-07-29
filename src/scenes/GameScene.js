@@ -1,5 +1,7 @@
 import Phaser from "phaser";
 
+let jaigere;
+
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -8,11 +10,11 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-
+        this.load.image('milos', 'src/image/bigmilos.png');
     }
 
     create() {
-
+        jaigere = this.add.image(100, 200, 'milos').setS;
     }
     
     
