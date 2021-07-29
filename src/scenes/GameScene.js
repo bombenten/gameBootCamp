@@ -1,12 +1,6 @@
 import Phaser from "phaser";
 
-let jotaro;
-let jotaroA;
-let keyW;
-let keyA;
-let keyS;
-let keyD;
-
+let player;
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
@@ -16,14 +10,13 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-
+        this.load.spritesheet('playerRight','src/image/jotaroRight.png',{frameWidth: 22.5,frameHeight: 32});
+        this.load.spritesheet('playerLeft','src/image/jotaroLeft.png',{frameWidth: 22.5,frameHeight: 32});
     }
 
     create() {
-
+        player=this.add.image(200,300,'playerRight').setScale(2);
     }
-    
-    
     
     update(delta, time) {
 
