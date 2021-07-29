@@ -1,11 +1,7 @@
 import Phaser from "phaser";
 
-let jotaro;
-let jotaroA;
-let keyW;
-let keyA;
-let keyS;
-let keyD;
+let jaigere;
+let badboy;
 
 
 class GameScene extends Phaser.Scene {
@@ -16,10 +12,15 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-
+        //this.load.image('milos', 'src/image/bigmilos.png');
+        this.load.spritesheet('badboy','src/image/botei.png',
+        { frameWidth: 66.5 , frameHeight: 164}); 
     }
 
     create() {
+        //jaigere = this.add.image(100, 200, 'milos')
+        //.setScale(3);
+        this.add.sprite(220,300,'badboy').setScale(1.5);
 
     }
     
