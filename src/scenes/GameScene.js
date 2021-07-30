@@ -25,7 +25,7 @@ class GameScene extends Phaser.Scene {
         // this.load.image('milos', 'src/image/bigmilos.png');
 
         this.load.spritesheet('badboy','src/image/botei.png',
-        { frameWidth: 66.5 , frameHeight: 164});
+        { frameWidth: 67 , frameHeight: 163});
         
         // this.load.image('bg', 'src/image/TileSprite (2).png');
 
