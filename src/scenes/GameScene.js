@@ -3,6 +3,7 @@ import Phaser from "phaser";
 
 let jaigere;
 let badboy;
+let angle;
 let backGround;
 let poke;
 let ground;
@@ -31,6 +32,7 @@ class GameScene extends Phaser.Scene {
         // this.load.image('poke', 'src/image/poke (9).png');
 
         // this.load.image('ground', 'src/image/ground.png');
+
 
     }
 
@@ -62,6 +64,7 @@ class GameScene extends Phaser.Scene {
             framerate: 0,
             repeat: -1
         })
+
 
         // backGround = this.add.tileSprite(0, 0, 850, 1400, 'bg')
         // .setOrigin(0, 0)
