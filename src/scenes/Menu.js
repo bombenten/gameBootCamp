@@ -10,12 +10,12 @@ class Menu extends Phaser.Scene {  //เปลี่ยนชื่อ Class เ
     }
 
     preload() {
-        this.load.spriteSheet('flyguy', 'src/image/flyGuy.png',
+        this.load.spritesheet('flyguy', 'src/image/flyGuy.png',
         { frameWidth: 36.25 , frameHeight: 25});
     }
 
     create() {
-        flyguy = this.physics.add.spriteSheet(250, 250, 'flyguy').setScale(2);  
+        flyguy = this.physics.add.sprite(250, 250, 'flyguy').setScale(2);  
 
         this.anims.create({
             key: 'flyGuyAni',
