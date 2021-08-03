@@ -5,6 +5,12 @@ let ground;
 let milos;
 // let tileSprite;
 
+//Controller
+let keyW;
+let keyA;
+let keyS;
+let keyD;
+
 class BootGameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -27,10 +33,10 @@ class BootGameScene extends Phaser.Scene {
     create() {
 
         badboy = this.physics.add.sprite(220, 350, 'badboy')
-        .setScale(3)
-        .setDepth(10)
-        .setSize(35,155)
-        .setOffset(15,0);
+            .setScale(3)
+            .setDepth(10)
+            .setSize(35, 155)
+            .setOffset(15, 0);
 
 
         // badboy.setCollideWorldBounds(true);
@@ -38,7 +44,7 @@ class BootGameScene extends Phaser.Scene {
         // ground = this.physics.add.image(250, 600, 'ground').setScale(0.5, 0.1)
         // .setSize(500,300)
         // .setOffset(0,170);
-        
+
         // ground.setCollideWorldBounds(true);
 
         // this.physics.add.collider(badboy, ground, ()=>{
@@ -59,12 +65,37 @@ class BootGameScene extends Phaser.Scene {
             repeat: -1
         })
 
+        // this.input.on('pointermove', (pointer) => {
+        //     badboy.x = pointer.x
+        //     badboy.y = pointer.y  //ตั้งให้ตำแหน่งตัวละครไปตามเมาส์ของเรา
+        // });
+
+        //Player Control
+        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     }
 
     update(delta, time) {
         // tileSprite.tilePositionY -= 1;
-        
+
         badboy.anims.play('badboyAni', true);
+
+        if(keyW.isDown){
+            badboy.setVelocityY(-500);
+        }else if(keyS.isDown){
+            badboy.setVelocityY(500);
+        }else{
+            badboy.setVelocityY(0);
+        }
+        if(keyA.isDown){
+            badboy.setVelocityX(-500);
+        }else if(keyD.isDown){
+            badboy.setVelocityX(500);
+        }else{
+            badboy.setVelocityX(0);
+        }
     }
 }
 
