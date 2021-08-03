@@ -1,5 +1,8 @@
 import Phaser from "phaser";
 
+let milos;
+
+
 
 class BootGameScene extends Phaser.Scene {
     constructor(test) {
@@ -9,11 +12,12 @@ class BootGameScene extends Phaser.Scene {
     }
 
     preload() {
-
+        this.load.image('milos', 'src/image/bigmilos.png');
     }
 
     create() {
-    
+        milos = this.add.image(200,350,'milos')
+        .setScale(3);
     }
     
     update(delta, time) {
