@@ -20,12 +20,22 @@ class BootGameScene extends Phaser.Scene {
 
     create() {
      //milos = this.add.image(200,350,'milos').setScale(3);
-     yeet = this.physics.add.sprite(220, 250, 'yeet').setScale(3).setDepth(5);
-     yeet.setCollideWorldBounds(true) ;
+     yeet = this.physics.add.sprite(240, 350, 'yeet').setScale(3).setDepth(5);
+    //  yeet.setCollideWorldBounds(true) ;
+    this.anims.create({
+        key: 'yeetAni',
+        frames: this.anims.generateFrameNumbers('yeet', {
+            start: 0,
+            end: 15
+        }),
+        duration: 10,
+        framerate: 0,
+        repeat: -1
+    })
 
-     ground = this.physics.add.image(100, 650, 'ground').setScale(1,1).setSize(500,90).setOffset(0,250);
-        ground.setCollideWorldBounds(true);
-        this.physics.add.collider(yeet,ground);
+    //  ground = this.physics.add.image(100, 650, 'ground').setScale(1,1).setSize(500,90).setOffset(0,250);
+    //     ground.setCollideWorldBounds(true);
+    //     this.physics.add.collider(yeet,ground);
         // this.physics.add.overlap(yeet,ground,()=>{
         //     milos = this.add.image(200,350,'milos').setScale(3).setDepth(3);
         // });
@@ -37,6 +47,7 @@ class BootGameScene extends Phaser.Scene {
     
     update(delta, time) {
         // bg.tilePositionY -= 1;
+        yeet.anims.play('yeetAni', true);
     }
 }
 
