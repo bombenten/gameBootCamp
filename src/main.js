@@ -24,8 +24,8 @@ const config = {
         }
     },
     scene: [
-        GameOver
-        ,BootGameScene
+        //GameOver
+        BootGameScene
         // MonsterCreation,
         // bullet
         // Menu,

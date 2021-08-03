@@ -7,6 +7,7 @@ let ground;
 let keyA;
 let keyS;
 let keyD;
+let ag;
 class BootGameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -15,24 +16,42 @@ class BootGameScene extends Phaser.Scene {
     }
 
     preload() {
+        this.load.spritesheet('ag','src/image/flyAngle.png',
+        { frameWidth: 30 , frameHeight: 21}); 
+
         this.load.image('milos','src/image/bigmilos.png');
+
         this.load.spritesheet('yeet','src/image/botei.png',
         { frameWidth: 67 , frameHeight: 163}); 
+
         this.load.image('ground','src/image/ground.png');
+
         this.load.image('bg','src/image/TileSprite (2).png');
     }
 
     create() {
      //milos = this.add.image(200,350,'milos').setScale(3);
-     yeet = this.physics.add.sprite(240, 350, 'yeet').setScale(3).setDepth(5);
-      yeet.setCollideWorldBounds(true) ;
+    //  yeet = this.physics.add.sprite(240, 350, 'yeet').setScale(3).setDepth(6);
+    //   yeet.setCollideWorldBounds(true) ;
+       ag = this.physics.add.sprite(240, 350, 'ag').setScale(4);
+       ag.setCollideWorldBounds(true) ;
+    // this.anims.create({
+    //     key: 'yeetAni',
+    //     frames: this.anims.generateFrameNumbers('yeet', {
+    //         start: 0,
+    //         end: 15
+    //     }),
+    //     duration: 1,
+    //     framerate: 0,
+    //     repeat: -1
+    // })
     this.anims.create({
-        key: 'yeetAni',
-        frames: this.anims.generateFrameNumbers('yeet', {
+        key: 'agAni',
+        frames: this.anims.generateFrameNumbers('ag', {
             start: 0,
-            end: 15
+            end: 7
         }),
-        duration: 1,
+        duration: 1000,
         framerate: 0,
         repeat: -1
     })
@@ -55,23 +74,40 @@ class BootGameScene extends Phaser.Scene {
     }
     
     update(delta, time) {
-        // bg.tilePositionY -= 1;
-        yeet.anims.play('yeetAni', true);
+        //bg.tilePositionY -= 1;
+        ag.anims.play('agAni', true);
 
         if(keyW.isDown){
-            yeet.setVelocityY(-500);
+            ag.setVelocityY(-500);
         }else if(keyS.isDown){
-            yeet.setVelocityY(500);
+            ag.setVelocityY(500);
         }else{
-            yeet.setVelocityY(0);
+            ag.setVelocityY(0);
         }
         if(keyA.isDown){
-            yeet.setVelocityX(-500);
+            ag.setVelocityX(-500);
         }else if(keyD.isDown){
-            yeet.setVelocityX(500);
+            ag.setVelocityX(500);
         }else{
-            yeet.setVelocityX(0);
+            ag.setVelocityX(0);
         }
+        
+        // angle.anims.play(' angletAni', true);
+
+        // if(keyW.isDown){
+        //     angle.setVelocityY(-500);
+        // }else if(keyS.isDown){
+        //     angle.setVelocityY(500);
+        // }else{
+        //     angle.setVelocityY(0);
+        // }
+        // if(keyA.isDown){
+        //     angle.setVelocityX(-500);
+        // }else if(keyD.isDown){
+        //     angle.setVelocityX(500);
+        // }else{
+        //     angle.setVelocityX(0);
+        // }
     }
 }
 
