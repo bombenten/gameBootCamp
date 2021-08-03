@@ -66,6 +66,12 @@ class BootGameScene extends Phaser.Scene {
             framerate: 0,
             repeat: -1
         })
+        
+
+        this.input.on('pointermove', (pointer)=>{
+            badboy.x = pointer.x
+            badboy.y = pointer.y  //ตั้งให้ตำแหน่งตัวละครไปตามเมาส์ของเรา
+        })
 
     }
     
