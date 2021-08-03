@@ -6,6 +6,7 @@ import Animation from './scenes/Animation';
 import bullet from './scenes/bullet';
 import MonsterCreation from './scenes/MonsterCreation';
 import BootGameScene from './scenes/BootGameScene'
+import GameOver from './scenes/GameOver'
 
 const config = {
     // For more settings see <https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js>
@@ -23,7 +24,8 @@ const config = {
         }
     },
     scene: [
-        BootGameScene
+        GameOver,
+        BootGameScene,
         // MonsterCreation,
         // bullet
         // Menu,
