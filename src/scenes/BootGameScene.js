@@ -3,6 +3,10 @@ let yeet;
 let bg;
 let ground;
  let milos;
+ let keyW;
+let keyA;
+let keyS;
+let keyD;
 class BootGameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -21,14 +25,14 @@ class BootGameScene extends Phaser.Scene {
     create() {
      //milos = this.add.image(200,350,'milos').setScale(3);
      yeet = this.physics.add.sprite(240, 350, 'yeet').setScale(3).setDepth(5);
-    //  yeet.setCollideWorldBounds(true) ;
+      yeet.setCollideWorldBounds(true) ;
     this.anims.create({
         key: 'yeetAni',
         frames: this.anims.generateFrameNumbers('yeet', {
             start: 0,
             end: 15
         }),
-        duration: 10,
+        duration: 1,
         framerate: 0,
         repeat: -1
     })
@@ -43,11 +47,31 @@ class BootGameScene extends Phaser.Scene {
      //.setOrigin(0,0)
      //.setScale(3)
      //;
+       //Player Control
+  keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+  keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+  keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+  keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     }
     
     update(delta, time) {
         // bg.tilePositionY -= 1;
         yeet.anims.play('yeetAni', true);
+
+        if(keyW.isDown){
+            yeet.setVelocityY(-500);
+        }else if(keyS.isDown){
+            yeet.setVelocityY(500);
+        }else{
+            yeet.setVelocityY(0);
+        }
+        if(keyA.isDown){
+            yeet.setVelocityX(-500);
+        }else if(keyD.isDown){
+            yeet.setVelocityX(500);
+        }else{
+            yeet.setVelocityX(0);
+        }
     }
 }
 
