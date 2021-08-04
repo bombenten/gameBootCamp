@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 
-let gameOver;
-let milos ;
+let badboy;
+let badSpawn;
 
 class TimerEvent extends Phaser.Scene {
     constructor(test) {
@@ -11,7 +11,8 @@ class TimerEvent extends Phaser.Scene {
     }
 
     preload() {
-
+        this.load.spritesheet('badboy','src/image/botei.png',
+        { frameWidth: 67 , frameHeight: 163});
 
     }
 
@@ -21,13 +22,44 @@ class TimerEvent extends Phaser.Scene {
         .setDepth(100);
         this.pointer = this.input.activePointer;
 
+        badboy = this.physics.add.sprite(220, 350, 'badboy')
+        .setScale(1.5)
+        .setDepth(10)
+        .setSize(35,155)
+        .setOffset(15,0);
+
+        this.anims.create({
+            key: 'badboyAni',
+            frames: this.anims.generateFrameNumbers('badboy', {
+                start: 0,
+                end: 15
+            }),
+            duration: 1500,
+            framerate: 0,
+            repeat: -1
+        })
+
+        badSpawn = this.time.addEvent({
+            delay: 3000,
+            callback: function(){
+                //code
+            },
+            callbackScope: this,
+            loop: false,
+            startAt: 1000,
+            timeScale: 1,
+            repeat: 10
+        })
+
+
 
     }
     
     update(delta, time) {
         //Show X Y
         this.label.setText('(' + this.pointer.x + ', ' + this.pointer.y + ')');
-        // tilesprite.tilePositionY -= 1;
+
+        badboy.anims.play('badboyAni', true);
 
     }
 }
