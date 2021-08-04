@@ -28,26 +28,55 @@ class TimerEvent extends Phaser.Scene {
         .setSize(35,155)
         .setOffset(15,0);
 
-        this.anims.create({
-            key: 'badboyAni',
-            frames: this.anims.generateFrameNumbers('badboy', {
-                start: 0,
-                end: 15
-            }),
-            duration: 1500,
-            framerate: 0,
-            repeat: -1
-        })
-        badboytimer = this.time.addEvent({
-            delay: 5000,
+        // this.anims.create({
+        //     key: 'badboyAni',
+        //     frames: this.anims.generateFrameNumbers('badboy', {
+        //         start: 0,
+        //         end: 15
+        //     }),
+        //     duration: 1500,
+        //     framerate: 0,
+        //     repeat: -1
+        // })
+        badGroup = this.physics.add.group();
+
+        //Event
+        badSpawn = this.time.addEvent({
+            delay: 1000,
             callback: function(){
-                //code
+                badboy = this.physics.add.sprite(200, 720, 'badboy')
+                    .setScale(1.5)
+                    .setDepth(10)
+                    .setSize(35,155)
+                    .setOffset(15,0);
+                badGroup.add(badboy);
+                badGroup.setVelocityY(-300);
+                badboy.anims.play('badboyAni', true);
             },
             callbackScope: this,
-            loop: false,
+            loop: true,
             startAt: 1000,
-            timeScale: 1,
-            repeat: 10
+            timeScale: 1
+        })
+badGroup = this.physics.add.group();
+
+        //Event
+        badSpawn = this.time.addEvent({
+            delay: 1000,
+            callback: function(){
+                badboy = this.physics.add.sprite(200, 720, 'badboy')
+                    .setScale(1.5)
+                    .setDepth(10)
+                    .setSize(35,155)
+                    .setOffset(15,0);
+                badGroup.add(badboy);
+                badGroup.setVelocityY(-300);
+                badboy.anims.play('badboyAni', true);
+            },
+            callbackScope: this,
+            loop: true,
+            startAt: 1000,
+            timeScale: 1
         })
 
 
