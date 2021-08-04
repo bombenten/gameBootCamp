@@ -19,12 +19,12 @@ class BootGameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bigmilos', 'src/image/bigmilos.png');
+        // this.load.image('bigmilos', 'src/image/bigmilos.png');
 
-        this.load.spritesheet('badboy', 'src/image/botei.png',
-            { frameWidth: 67, frameHeight: 163 });
+        // this.load.spritesheet('badboy', 'src/image/botei.png',
+        //     { frameWidth: 67, frameHeight: 163 });
 
-        this.load.image('ground', 'src/image/ground.png');
+        // this.load.image('ground', 'src/image/ground.png');
 
         // this.load.image('pokemon','src/image/TileSprite (2).png');
 
@@ -32,11 +32,11 @@ class BootGameScene extends Phaser.Scene {
 
     create() {
 
-        badboy = this.physics.add.sprite(220, 350, 'badboy')
-            .setScale(3)
-            .setDepth(10)
-            .setSize(35, 155)
-            .setOffset(15, 0);
+        // badboy = this.physics.add.sprite(220, 350, 'badboy')
+        //     .setScale(3)
+        //     .setDepth(10)
+        //     .setSize(35, 155)
+        //     .setOffset(15, 0);
 
 
         // badboy.setCollideWorldBounds(true);
@@ -54,16 +54,16 @@ class BootGameScene extends Phaser.Scene {
         // tileSprite = this.add.tileSprite(0, 0, 850, 1400, 'pokemon')
         // .setOrigin(0, 0);
 
-        this.anims.create({
-            key: 'badboyAni',
-            frames: this.anims.generateFrameNumbers('badboy', {
-                start: 0,
-                end: 15
-            }),
-            duration: 1500,
-            framerate: 0,
-            repeat: -1
-        })
+        // this.anims.create({
+        //     key: 'badboyAni',
+        //     frames: this.anims.generateFrameNumbers('badboy', {
+        //         start: 0,
+        //         end: 15
+        //     }),
+        //     duration: 1500,
+        //     framerate: 0,
+        //     repeat: -1
+        // })
 
         // this.input.on('pointermove', (pointer) => {
         //     badboy.x = pointer.x
@@ -71,31 +71,31 @@ class BootGameScene extends Phaser.Scene {
         // });
 
         //Player Control
-        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        // keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        // keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        // keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        // keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     }
 
     update(delta, time) {
         // tileSprite.tilePositionY -= 1;
 
-        badboy.anims.play('badboyAni', true);
+        // badboy.anims.play('badboyAni', true);
 
-        if(keyW.isDown){
-            badboy.setVelocityY(-500);
-        }else if(keyS.isDown){
-            badboy.setVelocityY(500);
-        }else{
-            badboy.setVelocityY(0);
-        }
-        if(keyA.isDown){
-            badboy.setVelocityX(-500);
-        }else if(keyD.isDown){
-            badboy.setVelocityX(500);
-        }else{
-            badboy.setVelocityX(0);
-        }
+        // if(keyW.isDown){
+        //     badboy.setVelocityY(-500);
+        // }else if(keyS.isDown){
+        //     badboy.setVelocityY(500);
+        // }else{
+        //     badboy.setVelocityY(0);
+        // }
+        // if(keyA.isDown){
+        //     badboy.setVelocityX(-500);
+        // }else if(keyD.isDown){
+        //     badboy.setVelocityX(500);
+        // }else{
+        //     badboy.setVelocityX(0);
+        // }
     }
 }
 
