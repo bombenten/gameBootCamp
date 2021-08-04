@@ -28,16 +28,16 @@ class TimerEvent extends Phaser.Scene {
         .setSize(35,155)
         .setOffset(15,0);
 
-        // this.anims.create({
-        //     key: 'badboyAni',
-        //     frames: this.anims.generateFrameNumbers('badboy', {
-        //         start: 0,
-        //         end: 15
-        //     }),
-        //     duration: 1500,
-        //     framerate: 0,
-        //     repeat: -1
-        // })
+        this.anims.create({
+            key: 'badboyAni',
+            frames: this.anims.generateFrameNumbers('badboy', {
+                start: 0,
+                end: 15
+            }),
+            duration: 1500,
+            framerate: 0,
+            repeat: -1
+        })
         badGroup = this.physics.add.group();
 
         //Event
@@ -58,6 +58,7 @@ class TimerEvent extends Phaser.Scene {
             startAt: 1000,
             timeScale: 1
         })
+
 badGroup = this.physics.add.group();
 
         //Event
@@ -78,8 +79,6 @@ badGroup = this.physics.add.group();
             startAt: 1000,
             timeScale: 1
         })
-
-
     }
 
     update(delta, time) {
