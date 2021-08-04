@@ -1,7 +1,8 @@
 import Phaser from "phaser";
 
 let badboy;
-let badboytimer;
+let badSpawn;
+let badGroup;
 
 class TimerEvent extends Phaser.Scene {
     constructor(test) {
@@ -21,13 +22,8 @@ class TimerEvent extends Phaser.Scene {
         this.label = this.add.text(0, 0, '(x, y)', { fontFamily: '"Monospace"' })
         .setDepth(100);
         this.pointer = this.input.activePointer;
-
-        badboy = this.physics.add.sprite(220, 350, 'badboy')
-        .setScale(1.5)
-        .setDepth(10)
-        .setSize(35,155)
-        .setOffset(15,0);
-
+        
+        //Animation
         this.anims.create({
             key: 'badboyAni',
             frames: this.anims.generateFrameNumbers('badboy', {
@@ -38,6 +34,7 @@ class TimerEvent extends Phaser.Scene {
             framerate: 0,
             repeat: -1
         })
+       
         badGroup = this.physics.add.group();
 
         //Event
@@ -59,34 +56,14 @@ class TimerEvent extends Phaser.Scene {
             timeScale: 1
         })
 
-badGroup = this.physics.add.group();
+        
 
-        //Event
-        badSpawn = this.time.addEvent({
-            delay: 1000,
-            callback: function(){
-                badboy = this.physics.add.sprite(200, 720, 'badboy')
-                    .setScale(1.5)
-                    .setDepth(10)
-                    .setSize(35,155)
-                    .setOffset(15,0);
-                badGroup.add(badboy);
-                badGroup.setVelocityY(-300);
-                badboy.anims.play('badboyAni', true);
-            },
-            callbackScope: this,
-            loop: true,
-            startAt: 1000,
-            timeScale: 1
-        })
     }
-
+    
     update(delta, time) {
         //Show X Y
         this.label.setText('(' + this.pointer.x + ', ' + this.pointer.y + ')');
-        
 
-        badboy.anims.play('badboyAni', true);
 
     }
 }
