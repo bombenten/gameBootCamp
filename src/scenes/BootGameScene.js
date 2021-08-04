@@ -16,25 +16,25 @@ class BootGameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.spritesheet('ag','src/image/flyAngle.png',
-        { frameWidth: 30 , frameHeight: 21}); 
+        // this.load.spritesheet('ag','src/image/flyAngle.png',
+        // { frameWidth: 30 , frameHeight: 21}); 
 
-        this.load.image('milos','src/image/bigmilos.png');
+        // this.load.image('milos','src/image/bigmilos.png');
 
-        this.load.spritesheet('yeet','src/image/botei.png',
-        { frameWidth: 67 , frameHeight: 163}); 
+        // this.load.spritesheet('yeet','src/image/botei.png',
+        // { frameWidth: 67 , frameHeight: 163}); 
 
-        this.load.image('ground','src/image/ground.png');
+        // this.load.image('ground','src/image/ground.png');
 
-        this.load.image('bg','src/image/TileSprite (2).png');
+        // this.load.image('bg','src/image/TileSprite (2).png');
     }
 
     create() {
      //milos = this.add.image(200,350,'milos').setScale(3);
     //  yeet = this.physics.add.sprite(240, 350, 'yeet').setScale(3).setDepth(6);
     //   yeet.setCollideWorldBounds(true) ;
-       ag = this.physics.add.sprite(240, 350, 'ag').setScale(4);
-       ag.setCollideWorldBounds(true) ;
+    //    ag = this.physics.add.sprite(240, 350, 'ag').setScale(4);
+    //    ag.setCollideWorldBounds(true) ;
     // this.anims.create({
     //     key: 'yeetAni',
     //     frames: this.anims.generateFrameNumbers('yeet', {
@@ -45,16 +45,16 @@ class BootGameScene extends Phaser.Scene {
     //     framerate: 0,
     //     repeat: -1
     // })
-    this.anims.create({
-        key: 'agAni',
-        frames: this.anims.generateFrameNumbers('ag', {
-            start: 0,
-            end: 7
-        }),
-        duration: 1000,
-        framerate: 0,
-        repeat: -1
-    })
+    // this.anims.create({
+    //     key: 'agAni',
+    //     frames: this.anims.generateFrameNumbers('ag', {
+    //         start: 0,
+    //         end: 7
+    //     }),
+    //     duration: 1000,
+    //     framerate: 0,
+    //     repeat: -1
+    // })
 
     //  ground = this.physics.add.image(100, 650, 'ground').setScale(1,1).setSize(500,90).setOffset(0,250);
     //     ground.setCollideWorldBounds(true);

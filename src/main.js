@@ -7,7 +7,7 @@ import bullet from './scenes/bullet';
 import MonsterCreation from './scenes/MonsterCreation';
 import BootGameScene from './scenes/BootGameScene'
 import GameOver from './scenes/GameOver';
-
+import TimerEvent from './scenes/TimerEvent';
 const config = {
     // For more settings see <https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js>
     type: Phaser.WEBGL,
@@ -24,8 +24,9 @@ const config = {
         }
     },
     scene: [
+        TimerEvent
         //GameOver
-        BootGameScene
+        // BootGameScene
         // MonsterCreation,
         // bullet
         // Menu,
