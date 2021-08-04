@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 
 let badboy;
+let badboytimer;
 
 class TimerEvent extends Phaser.Scene {
     constructor(test) {
@@ -37,6 +38,17 @@ class TimerEvent extends Phaser.Scene {
             framerate: 0,
             repeat: -1
         })
+        badboytimer = this.time.addEvent({
+            delay: 5000,
+            callback: function(){
+                //code
+            },
+            callbackScope: this,
+            loop: false,
+            startAt: 1000,
+            timeScale: 1,
+            repeat: 10
+        })
 
 
     }
@@ -44,7 +56,7 @@ class TimerEvent extends Phaser.Scene {
     update(delta, time) {
         //Show X Y
         this.label.setText('(' + this.pointer.x + ', ' + this.pointer.y + ')');
-        // tilesprite.tilePositionY -= 1;
+        
 
         badboy.anims.play('badboyAni', true);
 
