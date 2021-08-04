@@ -55,7 +55,24 @@ class TimerEvent extends Phaser.Scene {
             startAt: 1000,
             timeScale: 1
         })
-
+        //Animation
+        this.anims.create({
+            key: 'badboyAni',
+            frames: this.anims.generateFrameNumbers('badboy', {
+                start: 0,
+                end: 15
+            }),
+            duration: 1500,
+            framerate: 0,
+            repeat: -1
+        })
+       badboy.anims.play('badboyAni', true);
+//destroy snowManGroup when x = -150
+for (let i = 0; i < snowManGroup.getChildren().length; i++) {
+    if (snowManGroup.getChildren()[i].x < -150) {
+        snowManGroup.getChildren()[i].destroy();
+    }
+}
         
 
     }
