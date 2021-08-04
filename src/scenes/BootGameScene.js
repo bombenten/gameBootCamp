@@ -22,8 +22,8 @@ class BootGameScene extends Phaser.Scene {
         this.load.spritesheet('flyGirl', 'src/image/flyGirl.png',
         { frameWidth: 36 , frameHeight: 25}); 
 
-        this.load.spritesheet('badboy','src/image/botei.png',
-        { frameWidth: 67 , frameHeight: 163}); 
+        // this.load.spritesheet('badboy','src/image/botei.png',
+        // { frameWidth: 67 , frameHeight: 163}); 
         this.load.image('ground','src/image/ground.png')
         // this.load.image('bg', 'src/image/TileSprite (2).png');
     }
