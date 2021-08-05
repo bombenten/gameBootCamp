@@ -8,6 +8,8 @@ let bullet;
 let bulletGroup;
 let eventBullet;
 
+let cursor;
+
 class TimerEvent extends Phaser.Scene {
     constructor(test) {
         super({
@@ -66,15 +68,17 @@ class TimerEvent extends Phaser.Scene {
             pause: false
             });
 
+        
+        
+        
 
 
 
 
-
-        this.input.on('pointermove', (pointer)=>{
-            badboy.x = pointer.x
-            badboy.y = pointer.y  //ตั้งให้ตำแหน่งตัวละครไปตามเมาส์ของเรา
-        })
+        // this.input.on('pointermove', (pointer)=>{
+        //     badboy.x = pointer.x
+        //     badboy.y = pointer.y  //ตั้งให้ตำแหน่งตัวละครไปตามเมาส์ของเรา
+        // })
        
 
 
@@ -100,13 +104,36 @@ class TimerEvent extends Phaser.Scene {
         //     timeScale: 1
         // })
 
-        
+        cursor = this.input.keyboard.createCursorKeys();
 
     }
     
     update(delta, time) {
         //Show X Y
         this.label.setText('(' + this.pointer.x + ', ' + this.pointer.y + ')');
+
+        // if(cursor.left.isDown){
+        //     badboy.setVelocityX(-400);
+        // } else if(cursor.right.isDown){
+        //     badboy.setVelocityX(400);
+        // } else {
+        //     badboy.setVelocityX(0);
+        // }
+
+        if(cursor.up.isDown){
+            badboy.setVelocityY(-500);
+        }else if(cursor.down.isDown){
+            badboy.setVelocityY(500);
+        }else{
+            badboy.setVelocityY(0);
+        }
+        if(cursor.left.isDown){
+            badboy.setVelocityX(-500);
+        }else if(cursor.right.isDown){
+            badboy.setVelocityX(500);
+        }else{
+            badboy.setVelocityX(0);
+        }
 
         //destroy badGroup when y = 350
         // for (let i = 0; i < badGroup.getChildren().length; i++) {
