@@ -1,11 +1,8 @@
 import 'phaser';
 import Phaser from 'phaser';
 import GameScene from './scenes/GameScene';
-<<<<<<< HEAD
-=======
 // import Menu from './scenes/Menu';
 // import Animation from './scenes/Animation';
->>>>>>> parent of 0ca3c27 (new)
 
 const config = {
     // For more settings see <https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js>
@@ -23,14 +20,10 @@ const config = {
         }
     },
     scene: [
-<<<<<<< HEAD
-        GameScene,
-=======
         // Menu,
         GameScene
         // Animation
         
->>>>>>> parent of 0ca3c27 (new)
     ],
     
     
