@@ -25,7 +25,7 @@ class BootGameScene extends Phaser.Scene {
         // this.load.spritesheet('badboy','src/image/botei.png',
         // { frameWidth: 67 , frameHeight: 163}); 
         this.load.image('ground','src/image/ground.png')
-        // this.load.image('bg', 'src/image/TileSprite (2).png');
+        this.load.image('bg', 'src/image/TileSprite (2).png');
     }
 
     create() {
@@ -52,9 +52,9 @@ class BootGameScene extends Phaser.Scene {
         // this.physics.add.collider(badboy,ground, ()=>{
         //     milos = this.add.image(200,350,'milos').setScale(3);
         // });
-        // bg = this.add.tileSprite(0, 0, 450, 720, 'bg').setOrigin(0, 0);
+        bg = this.add.tileSprite(0, 0, 450, 720, 'bg').setOrigin(0, 0);
         // this.anims.create({
-        //     key: 'badboyani',
+        //     key: 'badboyani',wad
         //     frames: this.anims.generateFrameNumbers('badboy', {
         //         start: 0,
         //         end: 15
@@ -87,7 +87,7 @@ class BootGameScene extends Phaser.Scene {
     }
     
     update(delta, time) {
-        // bg.tilePositionY -= 1;
+        bg.tilePositionY -= 3;
         // badboy.anims.play('badboyani', true);
         flyGirl.anims.play('flyGirlAni', true);
 

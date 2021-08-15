@@ -8,6 +8,7 @@ import MonsterCreation from './scenes/MonsterCreation';
 import BootGameScene from './scenes/BootGameScene';
 import GameOver from './scenes/GameOver';
 import TimerEvent from './scenes/TimerEvent';
+import HomeWork from './scenes/HomeWork';
 
 
 const config = {
@@ -26,7 +27,8 @@ const config = {
         }
     },
     scene: [
-        TimerEvent,
+        HomeWork,
+        // TimerEvent,
         // GameOver,
         // BootGameScene,
         // MonsterCreation,
